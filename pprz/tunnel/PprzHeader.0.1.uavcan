@@ -1,0 +1,17 @@
+
+
+# 0 SOURCE (~sender_ID)
+# 1 DESTINATION (can be a broadcast ID)
+# 2 CLASS/COMPONENT
+#   bits 0-3: 16 class ID
+#   bits 4-7: 16 component ID
+# 3 MSG_ID
+# 4 MSG_PAYLOAD
+# . DATA (messages.xml)
+
+
+uint8 source
+uint8 destination
+uint4 classId
+uint4 componentId
+uint8 msgId

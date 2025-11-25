@@ -1,0 +1,11 @@
+# encapsulated paparazzi link telemetry frame
+#
+#
+
+bool UPLINK		= 0 # telemetry from ground to UAV
+bool DOWNLINK		= 1 # telemetry from UAV to ground
+bool		direction
+XbeeHeader	xbeeHeader
+PprzHeader	pprzHeader
+uint8[<=256]	payload
+

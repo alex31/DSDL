@@ -1,0 +1,7 @@
+# encapsulated sbus frame for futaba receiver 
+#
+#
+
+uint8 flags
+uint11[<=16] channels
+

@@ -1,0 +1,4 @@
+uint8 role          # # should be 0x81
+uint16 src_id
+uint8 rssi
+uint8 options
