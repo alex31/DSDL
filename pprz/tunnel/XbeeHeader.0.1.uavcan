@@ -1,4 +1,0 @@
-@union
-XbeeHeaderTx tx
-XbeeHeaderRx rx
-Empty	     none
