@@ -1,0 +1,30 @@
+# Generic four-channel light measurement; vendor-specific message ID 20901.
+# Raw linear sensor codes, ordered red, green, blue, clear (wideband).
+# These are neither lux nor display RGB. Scaling/calibration is sensor-specific.
+# OPT4060: each code is the 20-bit mantissa shifted left by the range exponent.
+
+uint8 STATUS_VALID = 1
+uint8 STATUS_SATURATED = 2
+uint8 STATUS_ERROR = 4
+
+uint8 REASON_PERIODIC = 0
+uint8 REASON_CHANGE = 1
+uint8 REASON_HEARTBEAT = 2
+uint8 REASON_STATE = 3
+
+# Local monotonic microseconds since node boot, NOT synchronized network time.
+# Time when the complete acquisition was read, or an acquisition error detected.
+# A delayed event retains its original timestamp; a heartbeat retains the time
+# of the latest acquisition. Reboot restarts the clock.
+uint64 timestamp_us
+
+# Configured conversion time PER CHANNEL, including integration and ADC time.
+# A four-channel OPT4060 cycle takes at least four times this duration.
+uint32 conversion_time_us
+uint8 sensor_id
+
+# VALID and SATURATED are mutually exclusive. ERROR means no usable acquisition:
+# rgbw is zero, not a previous sample. Saturated frames retain their raw codes.
+uint8 status
+uint8 reason
+uint32[4] rgbw
